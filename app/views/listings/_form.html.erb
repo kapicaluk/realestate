@@ -1,0 +1,50 @@
+<%= form_for @listing, :html =>{:multipart => true, :class => 'form-horizontal' } do |f| %> <% if @listing.errors.any? %>
+<div class='form-group'>
+<div id="error_explanation">
+<h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+<ul>
+<% @listing.errors.full_messages.each do |message| %>
+<li><%= message %></li> <% end %>
+</ul>
+</div>
+</div> <% end %>
+<div class='form-group'>
+<div class='control-label col-md-2'>
+<%= f.label :title %>
+
+</div>
+<div class='col-md-4'>
+<%= f.text_field :title, {:class => 'form-control input-md', :maxlength => '140'} %> </div>
+</div>
+<div class='form-group'>
+<div class='control-label col-md-2'>
+<%= f.label :description %> </div>
+<div class='col-md-6'>
+<%= f.text_field :description, {:class => 'form-control input-md', :maxlength => '140', :rows => '4', :cols => '30'} %>
+</div>
+</div>
+
+
+
+
+
+<div class='form-group'>
+<div class='control-label col-md-2'>
+Select files </div>
+<div class='col-md-4'>
+<%= f.file_field 'images', {:class => 'form-control input-md', :multiple => 'multiple'} %>
+
+</div> </div>
+<div class='form-group'>
+<div class='col-md-6 text-center'>
+<%= f.submit "Save", class: 'btn btn-primary btn-md' %> </div>
+</div>
+<% end %>
+
+
+
+
+
+
+
+

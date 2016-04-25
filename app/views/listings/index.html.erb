@@ -1,35 +1,28 @@
-<h1 class="page-heading">Listings#index</h1>
+<h1 class="page-heading">All Listings</h1> <div class="row">
+<div class='form-group'>
+<div class="col-md-12">
+<%=link_to 'New', new_listing_path, {class: 'btn btn-primary btn-md'} %>
+</div>
+</div> </div>
+<br/>
 <div class="row">
 <div class="col-md-12">
 <% if @listings.length == 0 %>
-<p class="lead">No  listings found</p>
+<p class="lead">No listings found </p>
 <% else %>
-
-<table class="table table-bordered table-striped table-responsive">
-	<thead>
-		<tr>
-			<td>Title</td>
-			<td>Description</td> 
-
-	</thead>
-
-<% @listings.each do |listing| %>
-<% end %>
-
+<table class="table table-bordered table-striped table-responsive"> <thead>
 <tr>
-	<td><% listing.title %> </td>
-	<td><% listing.description %> </td>
+<td>Title</td> <td>Description</td> <td></td>
+<td></td>
 </tr>
-
-
-
-
+</thead> <tbody>
+<% @listings.each do |listing| %> <tr>
+<td><%= listing.title %> </td>
+<td><%= listing.description %> </td>
+<td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+<td><%= link_to 'Delete', listing, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+</tr>
+<% end %> </tbody>
 </table>
-
-
 <% end %>
-
-</div>
-</div>
-
-cycki (.)(.)
+</div> </div>

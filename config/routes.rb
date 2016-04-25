@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   root 'listings#index'
 resources :listings do
+resources :features
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
