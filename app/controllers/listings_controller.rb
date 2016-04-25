@@ -46,14 +46,19 @@ def destroy
 id = params[:id]
 @listing = Listing.find(id) 
 @listing.destroy
+
 redirect_to root_path
+
 end
 
 
 private
 
 def listing_params
+
 params.require(:listing).permit(:title, :description, :price,) 
+
 end
+
 
 
