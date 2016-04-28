@@ -1,7 +1,8 @@
 class PicturesController < ApplicationController
 
 def index
-@listing = Listing.find(params[:listing_id])
+@iser = User.find(params[:user_id])
+@listing = @user.listing.find(params[:listing_id])
 @pictures = @listing.pictures
 end
 

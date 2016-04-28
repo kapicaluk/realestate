@@ -1,10 +1,27 @@
 Rails.application.routes.draw do
 
+  # get 'users/index'
+
+  # get 'users/new'
+
+  # get 'users/create'
+
+  # get 'users/edit'
+
+  # get 'users/update'
+
+  # get 'users/destroy'
+
   root 'public#index'
+  get 'login' => 'accounts#login', as: :login
+  get 'logout' => 'accounts#logout', as: :logout
+  post 'authenticate' => 'accounts#authenticate', as: :authenticate
   get 'public/:listing_id/details' => 'public#details', as: :details
+resources :users do
 resources :listings do
-resources :pictures
 resources :features
+resources :pictures
+end
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
